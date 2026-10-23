@@ -1,1 +1,94 @@
-
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070b14">
+  <title>ViralTrend AI — TikTok Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-icon">V</span><span>ViralTrend<span class="cyan"> AI</span></span></a>
+      <div class="nav-label">ESPACE CRÉATEUR</div>
+      <a class="nav active" href="#overview">◈ <span>Vue d’ensemble</span></a>
+      <a class="nav" href="#trends">↗ <span>Tendances</span></a>
+      <a class="nav" href="#captions">✦ <span>Studio de légendes</span></a>
+      <a class="nav" href="#comments">☷ <span>Commentaires</span></a>
+      <a class="nav" href="#calendar">▦ <span>Calendrier</span></a>
+      <div class="side-bottom">
+        <div class="secure-note"><span class="dot"></span> Connexion sécurisée<br><small>OAuth officiel TikTok</small></div>
+        <button id="connectBtn" class="btn primary full">♪ Connecter TikTok</button>
+        <button id="logoutBtn" class="btn ghost full hidden">Déconnecter</button>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-icon">V</span> ViralTrend<span class="cyan"> AI</span></div>
+        <div><div class="eyebrow">TON ESPACE DE CROISSANCE</div><h1 id="pageTitle">Vue d’ensemble</h1></div>
+        <div class="account" id="accountBox"><div class="avatar">♪</div><div><b id="accountName">Compte non connecté</b><small id="accountSub">Connecte ton compte pour démarrer</small></div></div>
+      </header>
+      <div id="notice" class="notice hidden"></div>
+      <section id="overview" class="hero panel">
+        <div class="hero-copy"><div class="pill"><span class="pulse"></span> ASSISTANT TIKTOK · 30 JOURS</div>
+          <h2>Transforme les <span class="gradient">tendances</span><br>en idées de contenu.</h2>
+          <p>Analyse tes statistiques accessibles, repère tes vidéos les plus performantes et prépare des publications originales depuis un seul espace.</p>
+          <div class="hero-actions"><button class="btn primary" id="refreshBtn">↻ Actualiser mes données</button><a class="btn ghost" href="#captions">✦ Créer une légende</a></div>
+        </div>
+        <div class="hero-art"><div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="phone"><div class="phone-top"></div><div class="play">▶</div><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="phone-caption">TREND<br><b>RADAR</b></div></div><div class="float-tag tag1">↗ Croissance</div><div class="float-tag tag2">✦ Idées originales</div></div>
+      </section>
+      <div class="metrics">
+        <div class="metric panel"><div class="metric-head">VIDÉOS CHARGÉES <span>▣</span></div><div class="metric-value" id="metricVideos">—</div><div class="metric-foot">Données accessibles</div></div>
+        <div class="metric panel"><div class="metric-head">VUES CUMULÉES <span>◉</span></div><div class="metric-value" id="metricViews">—</div><div class="metric-foot">Sur la liste chargée</div></div>
+        <div class="metric panel"><div class="metric-head">BROUILLONS <span>✦</span></div><div class="metric-value" id="metricDrafts">0</div><div class="metric-foot">Légendes originales</div></div>
+        <div class="metric panel"><div class="metric-head">PUBLICATIONS PRÉVUES <span>▦</span></div><div class="metric-value" id="metricQueue">0</div><div class="metric-foot">Validation requise</div></div>
+      </div>
+      <section id="trends" class="section">
+        <div class="section-heading"><div><div class="eyebrow">PERFORMANCE DU COMPTE</div><h2>Radar de tendances</h2></div><button class="btn ghost small" id="refreshBtn2">Actualiser ↻</button></div>
+        <div class="panel table-panel"><div class="table-title"><div><b>Tes vidéos les plus performantes</b><p>Score indicatif calculé à partir des statistiques accessibles</p></div><span class="tag">LIVE DATA*</span></div>
+          <div class="table-wrap"><table><thead><tr><th>VIDÉO</th><th>VUES</th><th>LIKES</th><th>COMMENTAIRES</th><th>SCORE</th></tr></thead><tbody id="videosBody"><tr><td colspan="5" class="empty">Connecte TikTok puis actualise les données.</td></tr></tbody></table></div>
+          <p class="fineprint">* Pas un flux complet des tendances TikTok ni une prédiction garantie. Le résultat dépend des scopes approuvés et des données retournées par l’API.</p>
+        </div>
+      </section>
+      <section id="captions" class="section">
+        <div class="section-heading"><div><div class="eyebrow">CRÉATION ASSISTÉE</div><h2>Studio de légendes</h2></div><span class="tag purple">ORIGINAL CONTENT</span></div>
+        <div class="two-col">
+          <div class="panel form-panel"><label for="topic">Ton sujet ou ton idée</label><textarea id="topic" rows="3" placeholder="Ex. : 3 choses que j’aurais aimé savoir plus tôt…"></textarea>
+            <label for="captionStyle">Style de légende</label><select id="captionStyle"><option value="engageant">Engageant</option><option value="question">Question pour lancer la discussion</option><option value="story">Storytelling / rétention</option></select>
+            <button class="btn primary full" id="generateBtn">✦ Générer une légende originale</button>
+            <p class="fineprint">Le générateur intégré utilise un modèle simple. Tu peux le remplacer par un service IA, avec sa clé gardée côté serveur.</p>
+          </div>
+          <div class="panel output-panel"><div class="output-head"><b>Ton brouillon</b><span class="tag">MODIFIABLE</span></div><textarea id="captionOutput" rows="7" placeholder="Ta légende apparaîtra ici…"></textarea>
+            <div class="output-actions"><button class="btn ghost small" id="copyBtn">Copier le texte</button><button class="btn primary small" id="saveDraftBtn">Enregistrer</button></div>
+            <div id="draftList" class="draft-list"></div>
+          </div>
+        </div>
+      </section>
+      <section id="comments" class="section">
+        <div class="section-heading"><div><div class="eyebrow">INSIGHTS COMMUNAUTÉ</div><h2>Analyse de commentaires</h2></div></div>
+        <div class="two-col">
+          <div class="panel form-panel"><label for="commentsInput">Colle des commentaires que tu es autorisé à utiliser</label><textarea id="commentsInput" rows="6" placeholder="Un commentaire par ligne…"></textarea><button class="btn primary full" id="analyzeBtn">Analyser les commentaires</button><p class="fineprint">Pas de collecte cachée : l’analyse porte uniquement sur les textes que tu fournis.</p></div>
+          <div class="panel output-panel"><b>Commentaires à examiner</b><div id="commentsResults" class="results-empty">Les résultats s’afficheront ici.</div></div>
+        </div>
+      </section>
+      <section id="calendar" class="section">
+        <div class="section-heading"><div><div class="eyebrow">PLANIFICATION SUR 30 JOURS</div><h2>Calendrier de contenu</h2></div><span class="tag">VALIDATION MANUELLE</span></div>
+        <div class="panel form-panel">
+          <div class="schedule-grid"><div><label for="scheduleDraft">Brouillon</label><select id="scheduleDraft"><option value="">Choisis un brouillon</option></select></div><div><label for="scheduleDate">Date et heure</label><input id="scheduleDate" type="datetime-local"></div></div>
+          <label for="videoUrl">URL HTTPS de ta vidéo originale (domaine vérifié par TikTok)</label><input id="videoUrl" type="url" placeholder="https://ton-domaine.com/ma-video.mp4">
+          <label for="privacy">Confidentialité souhaitée</label><select id="privacy"><option value="SELF_ONLY">Moi uniquement (recommandé pour tester)</option><option value="PUBLIC_TO_EVERYONE">Tout le monde (si autorisé par TikTok)</option><option value="MUTUAL_FOLLOW_FRIENDS">Amis (si autorisé)</option><option value="FOLLOWER_OF_CREATOR">Abonnés (si autorisé)</option></select>
+          <button class="btn primary" id="scheduleBtn">＋ Ajouter au calendrier</button>
+          <p class="fineprint">Planifier ici ne publie pas automatiquement à l’heure choisie. Ouvre chaque élément, vérifie le contenu et confirme l’envoi quand tu es prêt.</p>
+        </div>
+        <div id="scheduleList" class="schedule-list"></div>
+      </section>
+      <footer><span>ViralTrend AI</span><span>Respecte les règles TikTok · Contenu original · Anti-spam</span></footer>
+    </main>
+  </div>
+  <div id="confirmModal" class="modal hidden"><div class="modal-card"><div class="modal-icon">!</div><h2>Confirmer l’envoi à TikTok</h2><p>Vérifie que la vidéo est bien la tienne ou que tu as les droits nécessaires. L’envoi sera transmis à TikTok avec les réglages affichés.</p><div id="confirmDetails" class="confirm-details"></div><div class="modal-actions"><button class="btn ghost" id="cancelPublish">Annuler</button><button class="btn primary" id="confirmPublish">Confirmer l’envoi</button></div></div></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
