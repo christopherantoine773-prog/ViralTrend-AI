@@ -1,0 +1,2 @@
+# ViralTrend-AI
+Ai
